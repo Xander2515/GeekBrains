@@ -14,7 +14,7 @@
 
     double result = 0;
     
-    for (int i=0; i < 5; i++)
+    for (int i=0; i < 16; i++)
     {
         double b = 0;
         while(b <= a)

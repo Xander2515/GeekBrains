@@ -1,5 +1,6 @@
 ﻿double Root(double a, int n)
 {
+    //Отдельно метод вычисления степени
     double Exp(double x, int n)
     {
         double result=1;
@@ -13,22 +14,33 @@
     }
 
     double result = 0;
-    
-    for (int i=0; i < 16; i++)
+    //Перебираем до нужной точности
+    for (int i=0; i < 15; i++)
     {
         double b = 0;
-        while(b <= a)
+        //Сравниваем текущий результат в степени корня с аргументом корня по модулю
+        while(b*b <= a*a)
         {
             result=result + 1/Exp(10, i);
             b=1;
-            for (int j=0; j < n; j++)
-            {
-                b=b*result;
-            }
+            b=Exp(result, n);
         }
+        //Если цикл завершён, то текущий результат в степени корня больше аргумента корня и нужно его уменьшить
         result=result-1/Exp(10, i);
     }
-    return result;
+    //Если аргумент корня отрицательный и степень нечётная, то результат должен быть отрицательным
+    if (a < 0 && n % 2 != 0)
+        return -result;
+    else
+        return result;
 }
 
-Console.Write(Root(Convert.ToDouble(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())));
+double a = Convert.ToDouble(Console.ReadLine());
+int n = Convert.ToInt32(Console.ReadLine());
+
+double x = Root(a, n);
+
+if (a < 0 && n % 2 == 0)
+    a = -a;
+
+Console.Write($"Корень степени {n} из {a} равен {x}");

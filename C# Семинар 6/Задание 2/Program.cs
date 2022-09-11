@@ -8,10 +8,17 @@ return result;
 
 Random rnd = new Random();
 
-float k1 = rnd.NextSingle()*10;
-float b1 = rnd.NextSingle()*100;
-float k2 = rnd.NextSingle()*10;
-float b2 = rnd.NextSingle()*100;
+Console.Write("k1 = ");
+float k1 = Convert.ToSingle(Console.ReadLine());
+
+Console.Write("b1 = ");
+float b1 = Convert.ToSingle(Console.ReadLine());
+
+Console.Write("k2 = ");
+float k2 = Convert.ToSingle(Console.ReadLine());
+
+Console.Write("b2 = ");
+float b2 = Convert.ToSingle(Console.ReadLine());
 
 Console.WriteLine();
 

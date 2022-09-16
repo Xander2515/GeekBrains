@@ -15,7 +15,7 @@ void PrintArray(int[,] a)
     for (int i=0; i<a.GetLength(0); i++)
     {
         for (int j=0; j<a.GetLength(1); j++)
-            Console.Write($"| {a[i, j]} ");
+            Console.Write($"|  {a[i, j]}  ");
         
         Console.WriteLine("|");
     }
@@ -37,7 +37,7 @@ void FindAverage(int[,] a)
     for (int i=0; i<a.GetLength(1); i++)
     {
         result = 0;
-        
+
         for (int j=0; j<a.GetLength(0); j++)
             result = result + a[j, i];
     

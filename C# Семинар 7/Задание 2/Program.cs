@@ -5,7 +5,7 @@
 
     for (int i=0; i<m; i++)
         for (int j=0; j<n; j++)
-            result[i, j] = rnd.Next(0, 10);
+            result[i, j] = rnd.Next(10, 100);
     
     return result;
 }

@@ -36,11 +36,13 @@ void FindAverage(int[,] a)
 
     for (int i=0; i<a.GetLength(1); i++)
     {
+        result = 0;
+        
         for (int j=0; j<a.GetLength(0); j++)
             result = result + a[j, i];
     
-    result=result/a.GetLength(0);
-    Console.Write($"| {result} ");
+        result=result/a.GetLength(0);
+        Console.Write($"| {result} ");
     }
     Console.WriteLine("|");
 }

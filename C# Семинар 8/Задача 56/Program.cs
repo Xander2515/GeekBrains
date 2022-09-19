@@ -30,28 +30,28 @@ int[,] arr = GetArray(a, b);
 
 PrintArray(arr);
 
-int[,] OrderArray(int[,] a)
+int FindMinString(int[,] a)
 {
-    int b;
-    int[,] result = a;
+    int result=0;
 
-    for (int i=0; i<result.GetLength(0); i++)
+    int[] b = new int[a.GetLength(0)];
+
+    for (int i=0; i<a.GetLength(0); i++)
     {
-        for (int j=0; j<result.GetLength(1)-1; j++)
+        b[i] = 0;
+        for (int j=0; j<a.GetLength(1); j++)
         {
-            if (result[i,j] < result[i,j+1])
-            {
-                b = result[i,j];
-                result[i,j] = result[i,j+1];
-                result[i,j+1] = b;
-                j = -1;
-            }
+            b[i] = b[i] + a[i,j];
         }
     }
+
+    for (int i=0; i<b.Length-1; i++)
+        if (b[i] > b[i+1])
+            result=i+1;
 
     return result;
 }
 
 Console.WriteLine();
 
-PrintArray(OrderArray(arr));
+Console.WriteLine(FindMinString(arr));

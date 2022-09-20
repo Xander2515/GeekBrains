@@ -10,7 +10,15 @@
     return result;
 }
 
-void PrintArray(int[,] a)
+void PrintArrayFloatSingle(float[] a)
+{
+    for (int i=0; i<a.GetLength(0); i++)
+        Console.Write($"| {a[i]} ");
+        
+        Console.WriteLine("|");
+}
+
+void PrintArrayDouble(int[,] a)
 {
     for (int i=0; i<a.GetLength(0); i++)
     {
@@ -28,25 +36,23 @@ int b = Convert.ToInt32(Console.ReadLine());
 
 int[,] arr = GetArray(a, b);
 
-PrintArray(arr);
+PrintArrayDouble(arr);
 
-void FindAverage(int[,] a)
+float[] FindAverage(int[,] a)
 {
-    float result = 0;
+    float[] result = new float[a.GetLength(1)];
 
     for (int i=0; i<a.GetLength(1); i++)
     {
-        result = 0;
-
         for (int j=0; j<a.GetLength(0); j++)
-            result = result + a[j, i];
+            result[i] += a[j, i];
     
-        result=result/a.GetLength(0);
-        Console.Write($"| {result} ");
+        result[i]=result[i]/a.GetLength(0);
     }
-    Console.WriteLine("|");
+
+    return result;
 }
 
 Console.WriteLine();
 
-FindAverage(arr);
+PrintArrayFloatSingle(FindAverage(arr));
